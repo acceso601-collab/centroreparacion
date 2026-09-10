@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.ejemplo.centroreparacion.data.entity.Repair
 import com.ejemplo.centroreparacion.databinding.ItemRepairBinding
+import com.ejemplo.centroreparacion.util.Constants
+import com.ejemplo.centroreparacion.util.MoneyUtils
 
 class RepairAdapter(private val onClick: (Repair) -> Unit) :
     ListAdapter<Repair, RepairAdapter.VH>(DIFF) {
@@ -22,7 +24,7 @@ class RepairAdapter(private val onClick: (Repair) -> Unit) :
             tvTitle.text = "${r.brand} ${r.model}"
             tvClient.text = r.clientName
             tvProblem.text = r.problem
-            tvStatus.text = r.statusEnum.label
+            tvStatus.text = Constants.RepairStatus.label(r.status)
             root.setOnClickListener { onClick(r) }
         }
     }

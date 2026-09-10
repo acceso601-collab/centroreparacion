@@ -12,8 +12,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ejemplo.centroreparacion.R
-import com.ejemplo.centroreparacion.data.entity.RepairStatus
 import com.ejemplo.centroreparacion.databinding.FragmentRepairsListBinding
+import com.ejemplo.centroreparacion.util.Constants
 
 class RepairsListFragment : Fragment() {
 
@@ -34,18 +34,15 @@ class RepairsListFragment : Fragment() {
         b.rv.layoutManager = LinearLayoutManager(requireContext())
         b.rv.adapter = adapter
 
-        // Spinner con estados
-        val statuses = listOf("Todos") + RepairStatus.values().map { it.label }
+        val statuses = listOf("Todos") + Constants.RepairStatus.all().map { Constants.RepairStatus.label(it) }
         b.spinnerStatus.adapter = ArrayAdapter(
             requireContext(),
             android.R.layout.simple_spinner_dropdown_item,
             statuses
         )
 
-        // Observar todas las reparaciones por defecto
         vm.allRepairs().observe(viewLifecycleOwner) { adapter.submitList(it) }
 
-        // Búsqueda
         b.btnSearch.setOnClickListener {
             val q = b.etSearch.text.toString().trim()
             if (q.isEmpty()) {
@@ -55,15 +52,14 @@ class RepairsListFragment : Fragment() {
             }
         }
 
-        // Filtro por estado
         b.spinnerStatus.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 if (position == 0) {
                     vm.allRepairs().observe(viewLifecycleOwner) { adapter.submitList(it) }
                 } else {
-                    val status = RepairStatus.values()[position - 1]
+                    val statusCode = Constants.RepairStatus.all()[position - 1]
                     vm.allRepairs().observe(viewLifecycleOwner) { list ->
-                        adapter.submitList(list.filter { it.statusEnum == status })
+                        adapter.submitList(list.filter { it.status == statusCode })
                     }
                 }
             }
