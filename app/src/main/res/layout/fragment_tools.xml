@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="16dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Calculadora Ley de Ohm" android:textSize="20sp" android:textStyle="bold" />
+        <Spinner android:id="@+id/spinnerMode" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="8dp" />
+        <EditText android:id="@+id/etA" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Valor A" android:inputType="numberDecimal" />
+        <EditText android:id="@+id/etB" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Valor B" android:inputType="numberDecimal" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCalculate" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="Calcular" />
+        <TextView android:id="@+id/tvResult" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="8dp"
+            android:textSize="16sp" android:fontFamily="monospace" />
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Conversión de unidades" android:textSize="20sp" android:textStyle="bold"
+            android:layout_marginTop="24dp" />
+        <EditText android:id="@+id/etConvertValue" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Valor" android:inputType="numberDecimal" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Spinner android:id="@+id/spinnerFrom" android:layout_width="0dp"
+                android:layout_weight="1" android:layout_height="wrap_content" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="→" android:textSize="20sp" android:layout_gravity="center_vertical" />
+            <Spinner android:id="@+id/spinnerTo" android:layout_width="0dp"
+                android:layout_weight="1" android:layout_height="wrap_content" />
+        </LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConvert" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="Convertir" />
+        <TextView android:id="@+id/tvConvertResult" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="8dp"
+            android:textSize="16sp" android:fontFamily="monospace" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

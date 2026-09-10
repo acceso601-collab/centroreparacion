@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="16dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <EditText android:id="@+id/etBrand" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Marca *" />
+        <EditText android:id="@+id/etModel" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Modelo *" />
+        <EditText android:id="@+id/etImei" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="IMEI / Serie" android:inputType="number" />
+        <EditText android:id="@+id/etClient" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Nombre del cliente *" />
+        <EditText android:id="@+id/etPhone" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Teléfono" android:inputType="phone" />
+        <EditText android:id="@+id/etProblem" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Problema reportado *" android:inputType="textMultiLine" />
+        <EditText android:id="@+id/etPhysical" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Estado físico" />
+        <EditText android:id="@+id/etAccessories" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Accesorios recibidos" />
+        <EditText android:id="@+id/etPin" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="PIN / Contraseña (opcional)" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="⚠ Solo guarde el PIN con autorización del propietario."
+            android:textSize="11sp" android:textColor="#F44336" />
+        <EditText android:id="@+id/etLabor" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Mano de obra" android:inputType="numberDecimal" />
+        <EditText android:id="@+id/etOther" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Otros gastos" android:inputType="numberDecimal" />
+        <EditText android:id="@+id/etCharged" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Precio cobrado al cliente" android:inputType="numberDecimal" />
+        <EditText android:id="@+id/etNotes" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Notas" android:inputType="textMultiLine" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:layout_marginTop="16dp">
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancel" style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                android:text="Cancelar" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSave" android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content" android:text="Guardar" android:layout_marginStart="8dp" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
