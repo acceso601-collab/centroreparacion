@@ -5,18 +5,18 @@
     android:padding="16dp">
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Datos del dispositivo" android:textSize="16sp"
+            android:textStyle="bold" android:layout_marginBottom="8dp" />
+
         <EditText android:id="@+id/etBrand" android:layout_width="match_parent"
             android:layout_height="wrap_content" android:hint="Marca *" />
         <EditText android:id="@+id/etModel" android:layout_width="match_parent"
             android:layout_height="wrap_content" android:hint="Modelo *" />
         <EditText android:id="@+id/etImei" android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:hint="IMEI / Serie" android:inputType="number" />
-        <EditText android:id="@+id/etClient" android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:hint="Nombre del cliente *" />
-        <EditText android:id="@+id/etPhone" android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:hint="Teléfono" android:inputType="phone" />
-        <EditText android:id="@+id/etProblem" android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:hint="Problema reportado *" android:inputType="textMultiLine" />
+            android:layout_height="wrap_content" android:hint="IMEI / Serie"
+            android:inputType="number" />
         <EditText android:id="@+id/etPhysical" android:layout_width="match_parent"
             android:layout_height="wrap_content" android:hint="Estado físico" />
         <EditText android:id="@+id/etAccessories" android:layout_width="match_parent"
@@ -24,25 +24,60 @@
         <EditText android:id="@+id/etPin" android:layout_width="match_parent"
             android:layout_height="wrap_content" android:hint="PIN / Contraseña (opcional)" />
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="⚠ Solo guarde el PIN con autorización del propietario."
+            android:text="Aviso: Guarde el PIN solo con autorización del propietario."
             android:textSize="11sp" android:textColor="#F44336" />
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Datos del cliente" android:textSize="16sp"
+            android:textStyle="bold" android:layout_marginTop="12dp" />
+        <EditText android:id="@+id/etClient" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Nombre del cliente *" />
+        <EditText android:id="@+id/etPhone" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Teléfono" android:inputType="phone" />
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Problema y fechas" android:textSize="16sp"
+            android:textStyle="bold" android:layout_marginTop="12dp" />
+        <EditText android:id="@+id/etProblem" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:hint="Problema reportado *"
+            android:inputType="textMultiLine" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEntryDate" style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Entrada" android:layout_marginTop="4dp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEstimatedDate" style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Entrega estimada" android:layout_marginTop="4dp" />
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Costos (opcional)" android:textSize="16sp"
+            android:textStyle="bold" android:layout_marginTop="12dp" />
         <EditText android:id="@+id/etLabor" android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:hint="Mano de obra" android:inputType="numberDecimal" />
+            android:layout_height="wrap_content" android:hint="Mano de obra"
+            android:inputType="numberDecimal" />
         <EditText android:id="@+id/etOther" android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:hint="Otros gastos" android:inputType="numberDecimal" />
+            android:layout_height="wrap_content" android:hint="Otros gastos"
+            android:inputType="numberDecimal" />
         <EditText android:id="@+id/etCharged" android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:hint="Precio cobrado al cliente" android:inputType="numberDecimal" />
+            android:layout_height="wrap_content" android:hint="Precio cobrado al cliente"
+            android:inputType="numberDecimal" />
+
         <EditText android:id="@+id/etNotes" android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:hint="Notas" android:inputType="textMultiLine" />
+            android:layout_height="wrap_content" android:hint="Notas"
+            android:inputType="textMultiLine" android:minLines="2" />
+
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
             android:orientation="horizontal" android:layout_marginTop="16dp">
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCancel" style="@style/Widget.Material3.Button.OutlinedButton"
-                android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
-                android:text="Cancelar" />
+                android:layout_width="0dp" android:layout_weight="1"
+                android:layout_height="wrap_content" android:text="Cancelar" />
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSave" android:layout_width="0dp" android:layout_weight="1"
-                android:layout_height="wrap_content" android:text="Guardar" android:layout_marginStart="8dp" />
+                android:layout_height="wrap_content" android:text="Guardar"
+                android:layout_marginStart="8dp" />
         </LinearLayout>
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>
