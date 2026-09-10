@@ -3,19 +3,41 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
     app:startDestination="@id/dashboardFragment">
-    <fragment android:id="@+id/dashboardFragment" android:name="com.ejemplo.centroreparacion.ui.dashboard.DashboardFragment" android:label="Inicio">
+
+    <fragment android:id="@+id/dashboardFragment"
+        android:name="com.ejemplo.centroreparacion.ui.dashboard.DashboardFragment"
+        android:label="Inicio">
         <action android:id="@+id/action_dashboard_to_newRepair" app:destination="@id/newRepairFragment" />
-        <action android:id="@+id/action_dashboard_to_detail" app:destination="@id/repairDetailFragment" />
         <action android:id="@+id/action_dashboard_to_inventory" app:destination="@id/inventoryFragment" />
+        <action android:id="@+id/action_dashboard_to_tools" app:destination="@id/toolsFragment" />
+        <action android:id="@+id/action_dashboard_to_list" app:destination="@id/repairsListFragment" />
     </fragment>
-    <fragment android:id="@+id/repairsListFragment" android:name="com.ejemplo.centroreparacion.ui.repairs.RepairsListFragment" android:label="Reparaciones">
+
+    <fragment android:id="@+id/repairsListFragment"
+        android:name="com.ejemplo.centroreparacion.ui.repairs.RepairsListFragment"
+        android:label="Reparaciones">
         <action android:id="@+id/action_list_to_detail" app:destination="@id/repairDetailFragment" />
         <action android:id="@+id/action_list_to_new" app:destination="@id/newRepairFragment" />
     </fragment>
-    <fragment android:id="@+id/newRepairFragment" android:name="com.ejemplo.centroreparacion.ui.repairs.NewRepairFragment" android:label="Nueva Reparación" />
-    <fragment android:id="@+id/repairDetailFragment" android:name="com.ejemplo.centroreparacion.ui.repairs.RepairDetailFragment" android:label="Detalle">
-        <argument android:name="repairId" app:argType="long" />
+
+    <fragment android:id="@+id/newRepairFragment"
+        android:name="com.ejemplo.centroreparacion.ui.repairs.NewRepairFragment"
+        android:label="Nueva Reparación">
+        <action android:id="@+id/action_new_to_detail" app:destination="@id/repairDetailFragment"
+            app:popUpTo="@id/repairsListFragment" app:popUpToInclusive="false" />
     </fragment>
-    <fragment android:id="@+id/inventoryFragment" android:name="com.ejemplo.centroreparacion.ui.inventory.InventoryFragment" android:label="Inventario" />
-    <fragment android:id="@+id/toolsFragment" android:name="com.ejemplo.centroreparacion.ui.tools.ToolsFragment" android:label="Herramientas" />
+
+    <fragment android:id="@+id/repairDetailFragment"
+        android:name="com.ejemplo.centroreparacion.ui.repairs.RepairDetailFragment"
+        android:label="Detalle">
+        <argument android:name="repairId" app:argType="long" android:defaultValue="0L" />
+    </fragment>
+
+    <fragment android:id="@+id/inventoryFragment"
+        android:name="com.ejemplo.centroreparacion.ui.inventory.InventoryFragment"
+        android:label="Inventario" />
+
+    <fragment android:id="@+id/toolsFragment"
+        android:name="com.ejemplo.centroreparacion.ui.tools.ToolsFragment"
+        android:label="Herramientas" />
 </navigation>

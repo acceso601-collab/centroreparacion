@@ -9,8 +9,7 @@ interface ChecklistDao {
     @Insert suspend fun insertAll(items: List<ChecklistItem>)
     @Insert suspend fun insert(item: ChecklistItem): Long
     @Update suspend fun update(item: ChecklistItem)
+    @Delete suspend fun delete(item: ChecklistItem)
     @Query("SELECT * FROM checklist_items WHERE repairId = :repairId ORDER BY id ASC")
     fun byRepair(repairId: Long): LiveData<List<ChecklistItem>>
-    @Query("DELETE FROM checklist_items WHERE repairId = :repairId")
-    suspend fun deleteByRepair(repairId: Long)
 }

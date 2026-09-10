@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="horizontal" android:padding="10dp">
+    <LinearLayout android:layout_width="0dp" android:layout_weight="1"
+        android:layout_height="wrap_content" android:orientation="vertical">
+        <TextView android:id="@+id/tvName" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:textSize="14sp" android:textStyle="bold" />
+        <TextView android:id="@+id/tvDetail" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:textSize="12sp"
+            android:textColor="?android:attr/textColorSecondary" />
+    </LinearLayout>
+    <TextView android:id="@+id/tvSubtotal" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" android:textStyle="bold"
+        android:textColor="#4CAF50" android:layout_gravity="center_vertical" />
+    <ImageButton android:id="@+id/btnDelete" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_close_clear_cancel"
+        android:background="?selectableItemBackground" />
+</LinearLayout>

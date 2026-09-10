@@ -10,4 +10,6 @@ interface PhotoDao {
     @Delete suspend fun delete(p: RepairPhoto)
     @Query("SELECT * FROM repair_photos WHERE repairId = :repairId ORDER BY timestamp DESC")
     fun byRepair(repairId: Long): LiveData<List<RepairPhoto>>
+    @Query("SELECT * FROM repair_photos WHERE repairId = :repairId ORDER BY timestamp DESC")
+    suspend fun byRepairSync(repairId: Long): List<RepairPhoto>
 }

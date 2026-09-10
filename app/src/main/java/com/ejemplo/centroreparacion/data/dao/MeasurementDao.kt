@@ -8,6 +8,7 @@ import com.ejemplo.centroreparacion.data.entity.Measurement
 interface MeasurementDao {
     @Insert suspend fun insert(m: Measurement): Long
     @Delete suspend fun delete(m: Measurement)
+    @Update suspend fun update(m: Measurement)
     @Query("SELECT * FROM measurements WHERE repairId = :repairId ORDER BY timestamp DESC")
     fun byRepair(repairId: Long): LiveData<List<Measurement>>
 }

@@ -2,35 +2,58 @@ package com.ejemplo.centroreparacion.ui.repairs
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.ejemplo.centroreparacion.data.entity.*
+import com.ejemplo.centroreparacion.repository.InventoryResult
 import com.ejemplo.centroreparacion.repository.RepairRepository
+import com.ejemplo.centroreparacion.util.ProfitCalculator
 import kotlinx.coroutines.launch
 
 class RepairViewModel(app: Application) : AndroidViewModel(app) {
-    private val repo = RepairRepository(app)
+    val repository = RepairRepository(app)
 
-    fun allRepairs() = repo.allRepairs()
-    fun repairById(id: Long) = repo.repairById(id)
-    fun search(q: String) = repo.searchRepairs(q)
-    fun checklistFor(id: Long) = repo.checklistFor(id)
-    fun measurementsFor(id: Long) = repo.measurementsFor(id)
-    fun usedPartsFor(id: Long) = repo.usedPartsFor(id)
-    fun photosFor(id: Long) = repo.photosFor(id)
+    fun allRepairs() = repository.allRepairs()
+    fun recentRepairs() = repository.recentRepairs()
+    fun repairById(id: Long) = repository.repairById(id)
+    fun search(q: String) = repository.searchRepairs(q)
+    fun checklistFor(id: Long) = repository.checklistFor(id)
+    fun measurementsFor(id: Long) = repository.measurementsFor(id)
+    fun usedPartsFor(id: Long) = repository.usedPartsFor(id)
+    fun photosFor(id: Long) = repository.photosFor(id)
+    fun piecesCostFor(id: Long) = repository.piecesCostFor(id)
 
-    suspend fun getRepair(id: Long) = repo.getRepair(id)
+    suspend fun getRepair(id: Long) = repository.getRepair(id)
+    suspend fun financialsFor(id: Long): ProfitCalculator.Result = repository.financialsFor(id)
 
-    fun saveRepair(r: Repair, onCreate: (Long) -> Unit = {}) = viewModelScope.launch {
-        val id = repo.saveRepair(r)
-        if (r.id == 0L) { repo.initChecklist(id); onCreate(id) }
+    fun createRepair(r: Repair, onCreated: (Long) -> Unit) = viewModelScope.launch {
+        val id = repository.createRepair(r)
+        onCreated(id)
     }
-    fun deleteRepair(r: Repair) = viewModelScope.launch { repo.deleteRepair(r) }
-    fun updateChecklist(item: ChecklistItem) = viewModelScope.launch { repo.updateChecklistItem(item) }
-    fun addMeasurement(m: Measurement) = viewModelScope.launch { repo.addMeasurement(m) }
-    fun deleteMeasurement(m: Measurement) = viewModelScope.launch { repo.deleteMeasurement(m) }
-    fun addUsedPart(p: UsedPart) = viewModelScope.launch { repo.addUsedPart(p) }
-    fun deleteUsedPart(p: UsedPart) = viewModelScope.launch { repo.deleteUsedPart(p) }
-    fun addPhoto(p: RepairPhoto) = viewModelScope.launch { repo.addPhoto(p) }
-    fun deletePhoto(p: RepairPhoto) = viewModelScope.launch { repo.deletePhoto(p) }
+    fun updateRepair(r: Repair) = viewModelScope.launch { repository.updateRepair(r) }
+
+    fun deleteRepairWithRestore(id: Long, onDone: () -> Unit = {}) = viewModelScope.launch {
+        repository.deleteRepairWithRestore(id)
+        onDone()
+    }
+
+    fun updateChecklist(item: ChecklistItem) = viewModelScope.launch { repository.updateChecklistItem(item) }
+    fun addChecklistItem(item: ChecklistItem) = viewModelScope.launch { repository.addChecklistItem(item) }
+    fun deleteChecklistItem(item: ChecklistItem) = viewModelScope.launch { repository.deleteChecklistItem(item) }
+
+    fun addMeasurement(m: Measurement) = viewModelScope.launch { repository.addMeasurement(m) }
+    fun deleteMeasurement(m: Measurement) = viewModelScope.launch { repository.deleteMeasurement(m) }
+
+    fun addUsedPart(repairId: Long, inventoryId: Long, qty: Int, onResult: (InventoryResult) -> Unit) =
+        viewModelScope.launch {
+            val r = repository.addUsedPartTransactional(repairId, inventoryId, qty)
+            onResult(r)
+        }
+    fun deleteUsedPartAndRestore(p: UsedPart) = viewModelScope.launch {
+        repository.deleteUsedPartAndRestore(p)
+    }
+
+    fun addPhoto(repairId: Long, path: String) = viewModelScope.launch {
+        repository.addPhoto(RepairPhoto(repairId = repairId, path = path))
+    }
+    fun deletePhoto(p: RepairPhoto) = viewModelScope.launch { repository.deletePhotoAndFile(p) }
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:padding="16dp">
+
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Agregar pieza del inventario" android:textSize="18sp"
+        android:textStyle="bold" android:layout_marginBottom="8dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvInventory"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="0" android:maxHeight="280dp" />
+
+    <TextView android:id="@+id/tvSelected" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:padding="8dp"
+        android:text="Selecciona una pieza" android:textStyle="italic"
+        android:textColor="#666666" />
+
+    <EditText android:id="@+id/etQty" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:hint="Cantidad"
+        android:inputType="number" />
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:layout_marginTop="8dp">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnCancel" style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:text="Cancelar" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnConfirm" android:layout_width="0dp" android:layout_weight="1"
+            android:layout_height="wrap_content" android:text="Agregar"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+</LinearLayout>

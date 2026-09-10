@@ -5,6 +5,7 @@
     android:padding="16dp">
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
         android:orientation="vertical">
+
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
             android:text="Calculadora Ley de Ohm" android:textSize="20sp" android:textStyle="bold" />
         <Spinner android:id="@+id/spinnerMode" android:layout_width="match_parent"
@@ -23,6 +24,8 @@
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
             android:text="Conversión de unidades" android:textSize="20sp" android:textStyle="bold"
             android:layout_marginTop="24dp" />
+        <Spinner android:id="@+id/spinnerMag" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginTop="8dp" />
         <EditText android:id="@+id/etConvertValue" android:layout_width="match_parent"
             android:layout_height="wrap_content" android:hint="Valor" android:inputType="numberDecimal" />
         <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
