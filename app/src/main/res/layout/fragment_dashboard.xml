@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="16dp">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Centro de Reparación" android:textSize="24sp" android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+        <GridLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:columnCount="2" android:rowCount="2">
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_columnWeight="1" android:layout_margin="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Activas" android:textSize="14sp" />
+                    <TextView android:id="@+id/tvActive" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="0"
+                        android:textSize="28sp" android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_columnWeight="1" android:layout_margin="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Terminadas" android:textSize="14sp" />
+                    <TextView android:id="@+id/tvCompleted" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="0"
+                        android:textSize="28sp" android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_columnWeight="1" android:layout_margin="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Pendientes" android:textSize="14sp" />
+                    <TextView android:id="@+id/tvPending" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="0"
+                        android:textSize="28sp" android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_columnWeight="1" android:layout_margin="4dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Ganancia" android:textSize="14sp" />
+                    <TextView android:id="@+id/tvProfit" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="$0.00"
+                        android:textSize="22sp" android:textStyle="bold" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </GridLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNewRepair" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="+ Nueva Reparación"
+            android:layout_marginTop="16dp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnInventory" style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Inventario" android:layout_marginTop="8dp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnTools" style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Herramientas (Ley de Ohm)" android:layout_marginTop="8dp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLoadSample" style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Cargar datos de demostración" android:layout_marginTop="16dp" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnClearAll" style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Borrar todos los datos" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

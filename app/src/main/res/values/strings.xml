@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Centro de Reparación</string>
+    <string name="dashboard">Inicio</string>
+    <string name="repairs">Reparaciones</string>
+    <string name="inventory">Inventario</string>
+    <string name="tools">Herramientas</string>
+    <string name="new_repair">Nueva Reparación</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="delete">Eliminar</string>
+    <string name="search">Buscar</string>
+    <string name="filter">Filtrar</string>
+</resources>
